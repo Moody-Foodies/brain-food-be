@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_12_160527) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_13_185624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "user_moods", force: :cascade do |t|
-    t.integer "nutrient_id"
-    t.integer "user_id"
-    t.integer "mood_rating"
+  create_table "nutrients", force: :cascade do |t|
+    t.string "name"
+    t.string "health_benefits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
