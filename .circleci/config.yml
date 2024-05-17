@@ -7,15 +7,15 @@ jobs:
   build:
     docker:
       - image: cimg/ruby:3.2.2
-      - image: circleci/postgres:9.5-alpine
-        environment:
+      - environment:
           POSTGRES_DB: brain_food_test
           POSTGRES_USER: postgres
-      environment:
-        PGHOST: 127.0.0.1
-        PGPASSWORD: ''
-        PGUSER: postgres
-        RAILS_ENV: test
+        image: circleci/postgres:9.5-alpine
+    environment:
+      PGHOST: 127.0.0.1
+      PGPASSWORD: ''
+      PGUSER: postgres
+      RAILS_ENV: test
     steps:
       - checkout
       - ruby/install-deps
@@ -26,7 +26,7 @@ jobs:
           command: bundle exec rails db:schema:load --trace
           name: Database setup
       - run: bundle install
-      - run: bundle exec rspec
+      - run: bundle exec rspec 
 
 workflows:
   version: 2
