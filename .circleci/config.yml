@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: rails db:create db:schema:load
+      - run: rails db:{drop,create,migrate,seed}
       - run: bundle exec rspec 
 
 workflows:
