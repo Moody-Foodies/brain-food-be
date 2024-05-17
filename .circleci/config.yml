@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: rails db:{drop,create,migrate,seed}
+      - run: rails db:create db:schema:load RAILS_ENV=test
       - run: bundle exec rspec 
 
 workflows:
