@@ -235,7 +235,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
-  error_highlight (>= 0.4.0)
+  error_highlight (>= 0.3.0)
   faraday
   jsonapi-serializer
   pg (~> 1.1)
