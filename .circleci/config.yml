@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:current
+    steps:
+      - checkout
+      - run: bundle install
+      - run: rails db:{drop,create,migrate,seed}
+      - run: bundle exec rspec 
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
