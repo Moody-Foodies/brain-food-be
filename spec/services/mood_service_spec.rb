@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Mood Service" do
+RSpec.describe "Mood Service" do
   it 'create_user_mood' do
     mood = MoodService.new.create_user_mood({ "user_id": 1, "mood": 1 })
 
