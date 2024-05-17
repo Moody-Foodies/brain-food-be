@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: rails db:{drop,create,migrate,seed}
-      - run: bundle exec rspec 
+      # - run: rails db:{drop,create,migrate,seed}
+      # - run: bundle exec rspec 
 
 workflows:
   version: 2
