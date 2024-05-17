@@ -1,5 +1,10 @@
 version: 2.1
 
+orbs:
+  ruby: circleci/ruby@2.1.2
+
+
+
 jobs:
   build:
     docker:
@@ -23,7 +28,6 @@ jobs:
           command: bundle exec rails db:schema:load --trace
           name: Database setup
       - run: bundle install
-      - run: rails db:{drop,create,migrate,seed}
       - run: bundle exec rspec 
 
 workflows:
