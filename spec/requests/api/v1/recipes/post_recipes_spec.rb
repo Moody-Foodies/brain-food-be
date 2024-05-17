@@ -15,6 +15,8 @@ RSpec.describe "Api::V1::RecipesController", type: :request do
     end
 
     before do
+      WebMock.allow_net_connect!
+
       post "/api/v1/recipes", params: body
     end
 
