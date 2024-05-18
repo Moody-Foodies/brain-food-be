@@ -54,3 +54,4 @@ end
 
 gem "faraday"
 gem "jsonapi-serializer"
+gem "rspec_junit_formatter"
