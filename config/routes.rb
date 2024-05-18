@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'recipes', to: 'recipes#index'
       namespace :recipes do
-        resources :favorites, only: [:index, :create, :destroy]
+        resources :favorites, only: [:index, :create]
+        delete "favorites", to: "favorites#destroy"
       end
     end
   end

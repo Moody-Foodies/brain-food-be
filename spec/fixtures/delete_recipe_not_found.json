@@ -1,0 +1,5 @@
+{
+  "errors" : {
+    "detail" : "No favorited recipe found with that combination of user and recipe id."
+  }
+}
