@@ -27,7 +27,7 @@ RSpec.describe "Api::V1::RecipesController", type: :request do
          to_return(status: 200, body: "", headers: {})
 
       json_response = File.read("spec/fixtures/get_recipes_from_service.json")
-      stub_request(:get, "https://7a97657d-b4dd-468a-960b-563f46161622.mock.pstmn.io/recipes?cook_time=60&nutrient=Magnesium").
+      stub_request(:get, "https://recipes-service-be-27616f8124c6.herokuapp.com/recipes?cook_time=60&nutrient=Magnesium").
         with(
           headers: {
         'Accept'=>'*/*',
