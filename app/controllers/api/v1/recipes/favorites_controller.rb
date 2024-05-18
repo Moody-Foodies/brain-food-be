@@ -1,4 +1,10 @@
 class Api::V1::Recipes::FavoritesController < ApplicationController
+  def index
+    user_id = params[:user_id].to_i
+    favorite_recipes = FavoritesFacade.get_favorite_recipes(user_id)
+    render json: FavoritesSerializer.new(favorite_recipes[:data], user_id: user_id).serializable_hash
+  end
+
   def create
     recipe_info = recipe_details
     FavoriteRecipesFacade.new(recipe_info).create_favorite_recipe

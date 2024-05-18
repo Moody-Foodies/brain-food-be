@@ -10,7 +10,16 @@ class FavoritesService
     end
   end
 
+  def self.get_url(url)
+    response = conn.get(url)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.delete_favorite_recipe(user_id, recipe_id)
     delete_url("/api/v1/favorite_recipes", {user_id: user_id, id: recipe_id})
+  end
+
+  def self.get_favorite_recipes(user_id)
+    get_url("/api/v1/favorite_recipes?user_id=#{user_id}")
   end
 end
