@@ -20,6 +20,7 @@ class FavoritesService
   end
 
   def self.get_favorite_recipes(user_id)
-    get_url("/api/v1/favorite_recipes?user_id=#{user_id}")
+    url = user_id ? "/api/v1/favorite_recipes?user_id=#{user_id}" : "/api/v1/favorite_recipes"
+    get_url(url)
   end
 end

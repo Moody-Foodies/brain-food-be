@@ -63,5 +63,23 @@ RSpec.describe "Get Favorite Recipes", type: :request do
         expect(recipe[:attributes][:instructions]).to be_a(Array)
       end
     end
+
+    it 'returns all the favorite recipes for the user' do
+      json_response = File.read("spec/fixtures/get_favorites_bad_request.json")
+      stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
+        .to_return(status: 400, body: json_response)
+
+      get "/api/v1/recipes/favorites", headers: @headers
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+
+      favorites_response = JSON.parse(response.body, symbolize_names: true)
+      expect(favorites_response).to eq({
+        errors: {
+          detail: 'Unable to process request due to missing information'
+        }
+      })
+    end
   end
 end
