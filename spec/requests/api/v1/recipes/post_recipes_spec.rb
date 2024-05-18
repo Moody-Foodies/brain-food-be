@@ -15,7 +15,7 @@ RSpec.describe "Api::V1::RecipesController", type: :request do
     end
 
     before do
-      stub_request(:post, "http://127.0.0.1:5000/api/v1/moods").
+      stub_request(:post, "https://user-moods-rails.onrender.com/api/v1/moods").
          with(
            body: "{\"user_id\":1,\"mood\":5}",
            headers: {
