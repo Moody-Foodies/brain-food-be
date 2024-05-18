@@ -1,6 +1,6 @@
 class MoodService
   def conn
-    conn = Faraday.new(url: "http://127.0.0.1:5000/api/v1") do |faraday|
+    conn = Faraday.new(url: "https://user-moods-rails.onrender.com") do |faraday|
       faraday.headers['Accept'] = 'application/json'
       faraday.request :json
     end
