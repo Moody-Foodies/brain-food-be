@@ -50,7 +50,7 @@
 {
     "data": [
         {
-            "recipe_id": 123,
+            "id": 123,
             "type": "recipe",
             "attributes": {
                 "name": "Red Lentil Soup with Chicken and Turnips",
@@ -83,7 +83,7 @@
             }
         },
         {
-            "recipe_id": 124,
+            "id": 124,
             "type": "recipe",
             "attributes": {
                 "name": "Green Lentil Soup with Chicken and Turnips",
@@ -116,7 +116,7 @@
             }
         },
         {
-            "recipe_id": 125,
+            "id": 125,
             "type": "recipe",
             "attributes": {
                 "name": "Blue Lentil Soup with Chicken and Turnips",
@@ -149,7 +149,7 @@
             }
         },
         {
-            "recipe_id": 131,
+            "id": 131,
             "type": "recipe",
             "attributes": {
                 "name": "Maroon Lentil Soup with Chicken and Turnips",
@@ -189,7 +189,7 @@
 - Request: 
 ```json
 {
-    "recipe_id": 123,
+    "id": 123,
     "type": "recipe",
     "attributes": {
         "name": "Red Lentil Soup with Chicken and Turnips",
@@ -234,7 +234,7 @@
 {
     "data": [
         {
-            "recipe_id": 123,
+            "id": 123,
             "type": "recipe",
             "attributes": {
                 "name": "Red Lentil Soup with Chicken and Turnips",
@@ -268,7 +268,7 @@
             "user_id": 1
         },
         {
-            "recipe_id": 124,
+            "id": 124,
             "type": "recipe",
             "attributes": {
                 "name": "Green Lentil Soup with Chicken and Turnips",
@@ -302,7 +302,7 @@
             "user_id": 1
         },
         {
-            "recipe_id": 125,
+            "id": 125,
             "type": "recipe",
             "attributes": {
                 "name": "Blue Lentil Soup with Chicken and Turnips",
@@ -336,7 +336,7 @@
             "user_id": 1
         },
         {
-            "recipe_id": 131,
+            "id": 131,
             "type": "recipe",
             "attributes": {
                 "name": "Maroon Lentil Soup with Chicken and Turnips",
