@@ -25,8 +25,8 @@ jobs:
       - run:
           command: bundle exec rails db:schema:load --trace
           name: Database setup
-      - run: bundle install
-      - run: bundle exec rspec 
+      - ruby/rspec-test:
+          include: spec/**/*_spec.rb
 
 workflows:
   version: 2
