@@ -1,6 +1,6 @@
 class FavoritesService
   def self.conn 
-    Faraday.new(url: "https://recipes-service-be-27616f8124c6.herokuapp.com")
+    Faraday.new(url: "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com")
   end
 
   def self.delete_url(url, body)

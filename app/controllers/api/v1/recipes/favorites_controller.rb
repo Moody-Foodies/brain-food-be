@@ -1,8 +1,12 @@
 class Api::V1::Recipes::FavoritesController < ApplicationController
   def index
-    user_id = params[:user_id].to_i
+    user_id = params[:user_id]
     favorite_recipes = FavoritesFacade.get_favorite_recipes(user_id)
-    render json: FavoritesSerializer.new(favorite_recipes[:data], user_id: user_id).serializable_hash
+    if favorite_recipes[:errors]
+      render json: favorite_recipes, status: :bad_request
+    elsif
+      render json: FavoritesSerializer.new(favorite_recipes[:data], user_id: user_id).serializable_hash
+    end
   end
 
   def create

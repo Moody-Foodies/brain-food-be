@@ -10,7 +10,7 @@ RSpec.describe "Delete Favorite Recipe via HTTP Request" do
 
   describe '#happy path' do
     it 'can return the right response status when recieving a delete request' do
-      stub_request(:delete, "https://recipes-service-be-27616f8124c6.herokuapp.com/api/v1/favorite_recipes")
+      stub_request(:delete, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
         .to_return(status: 202, body: JSON.generate({}))
 
       delete "/api/v1/recipes/favorites", headers: @headers, params: JSON.generate(@body)
@@ -23,7 +23,7 @@ RSpec.describe "Delete Favorite Recipe via HTTP Request" do
   describe '#sad path' do
     it 'will return the correct error message if body of request is missing info' do
       json_response = File.read("spec/fixtures/delete_recipe_bad_request.json")
-      stub_request(:delete, "https://recipes-service-be-27616f8124c6.herokuapp.com/api/v1/favorite_recipes")
+      stub_request(:delete, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
         .to_return(status: 422, body: json_response)
 
       delete "/api/v1/recipes/favorites", headers: @headers, params: JSON.generate(@bad_body_1)
@@ -34,7 +34,7 @@ RSpec.describe "Delete Favorite Recipe via HTTP Request" do
 
     it 'will return the correct error message if no record with that informatino exists in the api' do
       json_response = File.read("spec/fixtures/delete_recipe_not_found.json")
-      stub_request(:delete, "https://recipes-service-be-27616f8124c6.herokuapp.com/api/v1/favorite_recipes")
+      stub_request(:delete, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
         .to_return(status: 404, body: json_response)
 
       delete "/api/v1/recipes/favorites", headers: @headers, params: JSON.generate(@bad_body_2)

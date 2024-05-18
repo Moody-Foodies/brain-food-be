@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe FavoritesFacade do
   before(:each) do
     @facade = FavoritesFacade.new
-    stub_request(:delete, "https://recipes-service-be-27616f8124c6.herokuapp.com/api/v1/favorite_recipes")
+    stub_request(:delete, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
       .to_return(status: 202, body: JSON.generate({})) 
 
     @get_facade = FavoritesFacade.new
     @json_response = File.read("spec/fixtures/get_favorite_recipes_request.json")
-    stub_request(:get, "https://recipes-service-be-27616f8124c6.herokuapp.com/api/v1/favorite_recipes?user_id=1")
+    stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=1")
         .to_return(status: 200, body: @json_response)
   end
 

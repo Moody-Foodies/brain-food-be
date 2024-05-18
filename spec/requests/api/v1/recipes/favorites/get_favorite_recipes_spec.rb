@@ -10,7 +10,7 @@ RSpec.describe "Get Favorite Recipes", type: :request do
   describe "GET api/v1/recipes/favorites" do
     it 'returns all the favorite recipes for the user' do
       json_response = File.read("spec/fixtures/get_favorite_recipes_request.json")
-      stub_request(:get, "https://recipes-service-be-27616f8124c6.herokuapp.com/api/v1/favorite_recipes?user_id=1")
+      stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=1")
         .to_return(status: 200, body: json_response)
 
       get "/api/v1/recipes/favorites?user_id=1", headers: @headers

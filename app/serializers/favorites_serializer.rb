@@ -7,7 +7,7 @@ class FavoritesSerializer
   def serializable_hash
     {
       data: {
-        id: @user_id[:user_id],
+        id: @user_id[:user_id].to_i,
         type: "favorite_recipe",
         recipes: @favorite_recipes
       }
