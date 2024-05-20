@@ -1,3 +1,6 @@
+## Brain Food Gateway
+- Brain Food Gateway is a Rails application developed to provide a gateway to all of the different services in the Brain Food Organization and provide an interface where the Frontend can access all this services. This API allows the Frontend to make a request to retrive a list of recommended recipes for a given mood the user is feeling, allowing users to save the recipes they want to quickly access later. This API also saves the moods of the user so we can allow users to track their moods as well.
+
 ## Setup
 
 ### Prerequisites
@@ -374,6 +377,8 @@
 ```
 - status: 200
 
+## Production Site: 
+[Brain Food Gatewat](https://brain-food-501b641e50fb.herokuapp.com)
 
 
 ## Testing
@@ -382,6 +387,18 @@ This project includes automated tests written with RSpec. To run the tests, exec
 ```bash
 bundle exec rspec
 ```
+
+## Contributors
+- Erin Kelley
+    - [LinkedIn](https://www.linkedin.com/in/kelleyej/) | [GitHub](https://github.com/kelleyej)
+- Faisal Nazari
+    - [LinkedIn](https://www.linkedin.com/in/mfaisalnazari/) | [GitHub](https://github.com/mfaisalnazari)
+- Igor Magalhaes
+    - [LinkedIn](https://www.linkedin.com/in/igorrmagalhaess/) | [GitHub](https://github.com/IgorrMagalhaess) 
+- Jack Sweeney
+    - [LinkedIn](https://www.linkedin.com/in/jack-sweeney-024043274/) | [GitHub](https://github.com/JackCSweeney)
+- Laura Long
+    - [LinkedIn](https://www.linkedin.com/in/lauralonggone/) | [GitHub](https://github.com/lalonggone)
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or pull requests.
