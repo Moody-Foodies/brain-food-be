@@ -10,11 +10,11 @@
 User.destroy_all
 Nutrient.destroy_all
 
-User.create(name: 'John Doe', email: 'john@example.com')
-User.create(name: 'Jane Smith', email: 'jane@example.com')
-User.create(name: 'Alice Johnson', email: 'alice@example.com')
-User.create(name: 'Bob Williams', email: 'bob@example.com')
-User.create(name: 'Emily Davis', email: 'emily@example.com')
+User.create!(name: 'John Doe', email: 'john@example.com', password: '1234')
+User.create!(name: 'Jane Smith', email: 'jane@example.com', password: '1234')
+User.create!(name: 'Alice Johnson', email: 'alice@example.com', password: '1234')
+User.create!(name: 'Bob Williams', email: 'bob@example.com', password: '1234')
+User.create!(name: 'Emily Davis', email: 'emily@example.com', password: '1234')
 
 
 Nutrient.create(name: 'Folic Acid', health_benefits: 'Info: Folic acid deficiency can lead to things like irritability, anemia, and different behavioral disorders. It is known to help increase the efficacy of antidepressant drugs, effectively helping those who suffer from depression potentially recover, or better manage their symptoms. It is also involved in the synthesis of serotonin, dopamine, epinephrine, and monoamine neurotransmitters, all of which can cause depression and neurochemical deterioration when not produced at the right amount within the brain and body. A study in which mice were placed under chronic unpredictable mild stress and given folic acid, the mice exhibited antidepressant-like effects through various pathways involving monoamine neurotransmitters. Sources: https://www.sciencedirect.com/science/article/pii/S0531556522003813')
