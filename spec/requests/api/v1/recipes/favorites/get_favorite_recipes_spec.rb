@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Get Favorite Recipes", type: :request do
   before do
-    @user = User.create!(name: "Igor", email: "igor@example.com")
+    @user = User.create!(name: "Igor", email: "igor@example.com", password: "example")
     @headers = { 'Content-Type' => 'application/json'}
 
   end
