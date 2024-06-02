@@ -2,11 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Api::V1::Recipes::Favorites", type: :request do
   describe "POST /api/v1/recipes/favorites" do
+    let!(:user) { User.create(name: "John", email: "johannes@example.com", password: "password") }
+    let!(:token) do
+      payload = { user_id: user.id }
+      JWT.encode(payload, 'brain_food_secret')
+    end
+    let!(:headers) { { 'Authorization' => "Bearer #{token}" } }
     let(:recipe_details) do
       {
         id: 123,
         type: 'recipe',
-        user_id: 1,
+        user_id: user.id,
         attributes: {
           name: 'Green Lentil Soup with Chicken and Turnips',
           description: 'This food is good because of its taste',
@@ -44,7 +50,7 @@ RSpec.describe "Api::V1::Recipes::Favorites", type: :request do
     end
 
     it "creates a favorite recipe and returns a success message" do
-      post "/api/v1/recipes/favorites", params: recipe_details
+      post "/api/v1/recipes/favorites", headers: headers, params: recipe_details
 
       expect(response).to have_http_status(:created)
       expect(JSON.parse(response.body)["message"]).to eq("Favorite recipe created successfully")
@@ -56,7 +62,7 @@ RSpec.describe "Api::V1::Recipes::Favorites", type: :request do
       end
 
       it "returns an error message" do
-        post "/api/v1/recipes/favorites", params: recipe_details
+        post "/api/v1/recipes/favorites", headers: headers, params: recipe_details
 
         expect(response).to have_http_status(:unprocessable_entity)
         expect(JSON.parse(response.body)["error"]).to eq("Something went wrong")

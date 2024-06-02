@@ -1,6 +1,8 @@
 class Api::V1::Recipes::FavoritesController < ApplicationController
+  before_action :decode_token
+
   def index
-    user_id = params[:user_id]
+    user_id = @current_user.id
     favorite_recipes = FavoritesFacade.get_favorite_recipes(user_id)
     if favorite_recipes[:errors]
       render json: favorite_recipes, status: :bad_request
@@ -18,7 +20,7 @@ class Api::V1::Recipes::FavoritesController < ApplicationController
   end
 
   def destroy
-    result = FavoritesFacade.delete_favorite_recipe(params[:user_id], params[:recipe_id])
+    result = FavoritesFacade.delete_favorite_recipe(@current_user.id, params[:recipe_id])
     render json: result.body, status: result.status
   end
 
@@ -28,7 +30,7 @@ class Api::V1::Recipes::FavoritesController < ApplicationController
     {
       id: params[:id],
       type: params[:type],
-      user_id: params[:user_id],
+      user_id: @current_user.id,
       attributes: params[:attributes]
     }
   end
