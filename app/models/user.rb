@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  before_create :generate_token_id
   has_secure_password
 
   validates :name, presence: true
