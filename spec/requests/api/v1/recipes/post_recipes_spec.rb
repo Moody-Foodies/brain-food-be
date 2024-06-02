@@ -49,7 +49,7 @@ RSpec.describe "Api::V1::RecipesController", type: :request do
       nutrient.destroy
     end
 
-    it "returns recipes with the expected format" do
+    it "returns recipes with the expected format", :vcr do
       post "/api/v1/recipes", headers: headers, params: body
 
       expect(response).to have_http_status(:success)

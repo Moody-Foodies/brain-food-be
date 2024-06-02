@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       post 'login', to: 'sessions#create'
       delete 'logout', to: 'sessions#destroy'
       post 'recipes', to: 'recipes#index'
-      resources :users, only: [:create, :destroy, :update]
+      resources :users, only: [:index, :create, :destroy, :update]
       namespace :recipes do
         resources :favorites, only: [:index, :create]
         delete "favorites", to: "favorites#destroy"
