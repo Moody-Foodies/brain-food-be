@@ -9,7 +9,17 @@ RSpec.describe "Api::V1::Sessions", type: :request do
         post "/api/v1/login", params: { email: user.email, password: user.password }
 
         expect(response).to have_http_status(:ok)
-        json_response = JSON.parse(response.body)
+        json_response = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_response).to have_key(:data)
+        expect(json_response[:data]).to be_a(Hash)
+        
+        expect(json_response[:data][:id]).to eq(user.id.to_s)
+        expect(json_response[:data][:type]).to eq("user")
+        expect(json_response[:data][:attributes]).to be_a(Hash)
+
+        expect(json_response[:data][:attributes][:name]).to eq(user.name)
+        expect(json_response[:data][:attributes][:token]).to be_a(String)
       end
     end
 
