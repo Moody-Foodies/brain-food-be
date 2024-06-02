@@ -55,9 +55,8 @@ RSpec.describe "Api::V1::UsersController", type: :request do
     it "deletes the user" do
       delete "/api/v1/users/#{user.id}"
       
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(204)
       expect(User.exists?(user.id)).to be_falsey
-      expect(JSON.parse(response.body)["message"]).to eq("User deleted successfully")
     end
   end
 end

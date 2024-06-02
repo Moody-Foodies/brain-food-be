@@ -3,7 +3,7 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
-      render json: { data: { token_id: user.token_id } }, status: :ok
+      render json: UserSerializer.new(user), status: :ok
     else
       render json: { error: 'Invalid email or password' }, status: :unprocessable_entity
     end
