@@ -13,4 +13,19 @@ RSpec.describe MoodService do
       expect(service).to have_key(:date)
     end
   end
+
+  describe "#get_moods" do
+    it 'returns user_moods', :vcr do
+      user_id = 1
+      service = MoodService.new.get_moods(user_id)
+
+      expect(service).to have_key(:data)
+      expect(service[:data]).to have_key(:id)
+      expect(service[:data][:id]).to eq(user_id.to_s)
+      expect(service[:data][:type]).to eq("moods")
+      expect(service[:data][:attributes]).to be_a(Hash)
+      expect(service[:data][:attributes][:avg_mood]).to be_a(Float)
+      expect(service[:data][:attributes][:user_moods]).to be_a(Array)
+    end
+  end
 end

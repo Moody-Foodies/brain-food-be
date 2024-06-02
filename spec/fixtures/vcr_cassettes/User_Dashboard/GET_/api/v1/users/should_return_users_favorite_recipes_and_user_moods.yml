@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=2439
+    uri: https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=2479
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 02 Jun 2024 23:26:52 GMT
+      - Sun, 02 Jun 2024 23:30:35 GMT
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717370813&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=BIaA1CeDBs1YY5XioYtTbr%2BB9qVAXVaI1slmqHa29V0%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717371036&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=GRkxsTlI%2FOJtjl9K%2BA6FeqXE2Ccv%2F7EOvI7iHIimNkc%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1717370813&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=BIaA1CeDBs1YY5XioYtTbr%2BB9qVAXVaI1slmqHa29V0%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1717371036&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=GRkxsTlI%2FOJtjl9K%2BA6FeqXE2Ccv%2F7EOvI7iHIimNkc%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -49,9 +49,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4e1dba30-d507-4107-bc7c-b3ba02b2d59a
+      - 77dd395f-348d-4b45-8618-f62587cedf3e
       X-Runtime:
-      - '0.009256'
+      - '0.105436'
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       Content-Length:
@@ -61,10 +61,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[]}'
-  recorded_at: Sun, 02 Jun 2024 23:26:53 GMT
+  recorded_at: Sun, 02 Jun 2024 23:30:36 GMT
 - request:
     method: get
-    uri: https://user-moods-73d107f0a7fc.herokuapp.com/api/moods?user_id=2439
+    uri: https://user-moods-73d107f0a7fc.herokuapp.com/api/moods?user_id=2479
     body:
       encoding: US-ASCII
       string: ''
@@ -81,9 +81,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717370813&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=Eb6AWRDgj9fgAxvVo25Mhh6MfAf5G9Uk7SbD3j5iz54%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717371036&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=vHhnas1VKNTFNCfdXeml%2FtFLo7YJacPshOGIryDsbRM%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1717370813&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=Eb6AWRDgj9fgAxvVo25Mhh6MfAf5G9Uk7SbD3j5iz54%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1717371036&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=vHhnas1VKNTFNCfdXeml%2FtFLo7YJacPshOGIryDsbRM%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -91,7 +91,7 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Sun, 02 Jun 2024 23:26:53 GMT
+      - Sun, 02 Jun 2024 23:30:36 GMT
       Content-Type:
       - application/json
       Vary:
@@ -114,6 +114,6 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"2439","type":"moods","attributes":{"avg_mood":0,"user_moods":[]}}}'
-  recorded_at: Sun, 02 Jun 2024 23:26:53 GMT
+      string: '{"data":{"id":"2479","type":"moods","attributes":{"avg_mood":0,"user_moods":[]}}}'
+  recorded_at: Sun, 02 Jun 2024 23:30:36 GMT
 recorded_with: VCR 6.2.0
