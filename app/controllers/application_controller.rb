@@ -13,8 +13,8 @@ class ApplicationController < ActionController::API
 
   def decode_token
     header = request.headers['Authorization']
-    header = header.split(" ").last 
     if header
+      header = header.split(" ").last 
       begin
         @decoded = JWT.decode(header, brain_food_secret)
         @current_user = User.find(@decoded.first["user_id"])

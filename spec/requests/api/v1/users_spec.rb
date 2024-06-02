@@ -75,6 +75,17 @@ RSpec.describe "Api::V1::UsersController", type: :request do
         invalid_response = JSON.parse(response.body, symbolize_names: true)
         expect(invalid_response[:errors].first[:detail]).to eq("Couldn't find User with 'id'=123123")
       end
+
+      it "returns an error if no token passed" do
+        token = JWT.encode({user_id: 123123}, 'brain_food_secret')
+        headers = { 'Content-Type' => 'application/json' } 
+
+        put "/api/v1/users/#{user.id}", headers: headers, params: { name: "JOEY", email: "invalid_email", password: "short" }
+
+        expect(response).to have_http_status(400)
+        invalid_response = JSON.parse(response.body, symbolize_names: true)
+        expect(invalid_response[:errors].first[:detail]).to eq("Authorization header missing")
+      end
     end
   end
 
