@@ -1,5 +1,5 @@
 class UserSerializer
   include JSONAPI::Serializer
   :id 
-  :name
+  attribute :name
 end

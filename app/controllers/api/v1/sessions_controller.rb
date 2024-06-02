@@ -5,7 +5,8 @@ class Api::V1::SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       render json: UserSerializer.new(user), status: :ok
     else
-      render json: { error: 'Invalid email or password' }, status: :unprocessable_entity
+      message = "Invalid email or password"
+      render json: ErrorSerializer.new(ErrorMessage.new(message)).serialize_message, status: :unprocessable_entity
     end
   end
 

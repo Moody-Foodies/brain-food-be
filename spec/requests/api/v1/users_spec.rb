@@ -20,7 +20,8 @@ RSpec.describe "Api::V1::UsersController", type: :request do
         post "/api/v1/users", params: { name: "", email: "invalid_email", password: "short" }
 
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(JSON.parse(response.body)["error"]).to be_present
+        invalid_response = JSON.parse(response.body, symbolize_names: true)
+        expect(invalid_response[:errors].first[:detail]).to eq("Name can't be blank")
       end
     end
   end
@@ -44,7 +45,8 @@ RSpec.describe "Api::V1::UsersController", type: :request do
         put "/api/v1/users/#{user.id}", params: { name: "", email: "invalid_email", password: "short" }
 
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(JSON.parse(response.body)["error"]).to be_present
+        invalid_response = JSON.parse(response.body, symbolize_names: true)
+        expect(invalid_response[:errors].first[:detail]).to eq("Name can't be blank")
       end
     end
   end

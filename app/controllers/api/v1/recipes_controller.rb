@@ -9,6 +9,3 @@ class Api::V1::RecipesController < ApplicationController
     render json: RecipeSerializer.new(recipes).serializable_hash
   end
 end
-
-
-    # render json: RecipeSerializer.serialize(recipes)
