@@ -45,6 +45,7 @@ group :development, :test do
   gem "simplecov"
   gem "shoulda-matchers"
   gem "webmock"
+  gem "vcr"
 end
 
 group :development do
@@ -57,3 +58,5 @@ end
 gem "faraday"
 gem "jsonapi-serializer"
 gem "rspec_junit_formatter"
+gem "dotenv-rails"
+gem "jwt"

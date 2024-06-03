@@ -3,17 +3,17 @@ require "rails_helper"
 RSpec.describe "Get Favorite Recipes", type: :request do
   before do
     @user = User.create!(name: "Igor", email: "igor@example.com", password: "example")
-    @headers = { 'Content-Type' => 'application/json'}
-
+    token = JWT.encode({user_id: @user.id}, "brain_food_secret")
+    @headers = { 'Content-Type' => 'application/json', "Authorization" => "Bearer #{token}" }
   end
 
   describe "GET api/v1/recipes/favorites" do
     it 'returns all the favorite recipes for the user' do
       json_response = File.read("spec/fixtures/get_favorite_recipes_request.json")
-      stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=1")
+      stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=#{@user.id}")
         .to_return(status: 200, body: json_response)
 
-      get "/api/v1/recipes/favorites?user_id=1", headers: @headers
+      get "/api/v1/recipes/favorites?user_id=#{@user.id}", headers: @headers
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -22,7 +22,7 @@ RSpec.describe "Get Favorite Recipes", type: :request do
 
       expect(favorites_response[:data]).to be_a(Hash)
       expect(favorites_response[:data]).to have_key(:id)
-      expect(favorites_response[:data][:id]).to eq(1)
+      expect(favorites_response[:data][:id]).to eq(@user.id)
       expect(favorites_response[:data][:type]).to eq("favorite_recipe")
       expect(favorites_response[:data][:recipes]).to be_a(Array)
 
@@ -64,22 +64,27 @@ RSpec.describe "Get Favorite Recipes", type: :request do
       end
     end
 
-    it 'returns all the favorite recipes for the user' do
-      json_response = File.read("spec/fixtures/get_favorites_bad_request.json")
-      stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
-        .to_return(status: 400, body: json_response)
+    # Now our authentication is taking care of sad path for getting the favorite recipe.
+    # If the token passed is invalid, we will return appropriate error response.
+    # Otherwise will authomatically provide the user_ID necessary to complete this step.
 
-      get "/api/v1/recipes/favorites", headers: @headers
+    # it 'returns all the favorite recipes for the user' do
+    #   json_response = File.read("spec/fixtures/get_favorites_bad_request.json")
+      
+    #   stub_request(:get, "https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes")
+    #     .to_return(status: 400, body: json_response)
 
-      expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+    #   get "/api/v1/recipes/favorites", headers: @headers
 
-      favorites_response = JSON.parse(response.body, symbolize_names: true)
-      expect(favorites_response).to eq({
-        errors: {
-          detail: 'Unable to process request due to missing information'
-        }
-      })
-    end
+    #   expect(response).to_not be_successful
+    #   expect(response.status).to eq(400)
+
+    #   favorites_response = JSON.parse(response.body, symbolize_names: true)
+    #   expect(favorites_response).to eq({
+    #     errors: {
+    #       detail: 'Unable to process request due to missing information'
+    #     }
+    #   })
+    # end
   end
 end
