@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::API
-
   private
-
   def encode_token(payload)
     JWT.encode(payload, brain_food_secret) 
   end
@@ -24,6 +22,6 @@ class ApplicationController < ActionController::API
   end
 
   def brain_food_secret
-    "brain_food_secret"
+    ENV['BRAIN_FOOD_SECRET']
   end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Delete Favorite Recipe via HTTP Request" do
   before(:each) do
     user = User.create(name: 'Joe', email: 'joe@example.com', password: 'password')
-    token = JWT.encode({user_id: user.id}, "brain_food_secret")
+    token = JWT.encode({user_id: user.id}, ENV['BRAIN_FOOD_SECRET'])
     @headers = {"CONTENT_TYPE" => "application/json", "Authorization" => "Bearer #{token}"}
     @body = {user_id: 1, recipe_id: 123}
     @bad_body_1 = {user_id: 1}

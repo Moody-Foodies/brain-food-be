@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Get Favorite Recipes", type: :request do
   before do
     @user = User.create!(name: "Igor", email: "igor@example.com", password: "example")
-    token = JWT.encode({user_id: @user.id}, "brain_food_secret")
+    token = JWT.encode({user_id: @user.id}, ENV['BRAIN_FOOD_SECRET'])
     @headers = { 'Content-Type' => 'application/json', "Authorization" => "Bearer #{token}" }
   end
 
