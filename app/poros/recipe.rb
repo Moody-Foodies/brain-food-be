@@ -5,8 +5,8 @@ class Recipe
     @id = data[:id]
     @name = data[:title]
     @image = data[:image]
-    @ingredients = data[:ingredients].map { |ingredient| ingredient[:original] }
-    @instructions = data[:instructions].first[:steps].map { |step| step[:step] }
+    @ingredients = data[:ingredients]
+    @instructions = data[:instructions]
     @health_benefits = nutrient.health_benefits
     @nutrient = nutrient.name
     @description = data[:description]
