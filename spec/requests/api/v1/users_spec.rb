@@ -30,7 +30,7 @@ RSpec.describe "Api::V1::UsersController", type: :request do
     let!(:user) { User.create(name: "Joe", email: "joe@example.com", password: "password") }
     let!(:token) do
       payload = { user_id: user.id }
-      JWT.encode(payload, 'brain_food_secret')
+      JWT.encode(payload, ENV['BRAIN_FOOD_SECRET'])
     end
     let!(:headers) { { 'Authorization' => "Bearer #{token}" } }
 
@@ -66,7 +66,7 @@ RSpec.describe "Api::V1::UsersController", type: :request do
       end
 
       it "returns an error if token passed is returns an non existing user" do
-        token = JWT.encode({user_id: 123123}, 'brain_food_secret')
+        token = JWT.encode({user_id: 123123}, ENV['BRAIN_FOOD_SECRET'])
         headers = { 'Authorization' => "Bearer #{token}" } 
 
         put "/api/v1/users/#{user.id}", headers: headers, params: { name: "JOEY", email: "invalid_email", password: "short" }
@@ -77,7 +77,7 @@ RSpec.describe "Api::V1::UsersController", type: :request do
       end
 
       it "returns an error if no token passed" do
-        token = JWT.encode({user_id: 123123}, 'brain_food_secret')
+        token = JWT.encode({user_id: 123123}, ENV['BRAIN_FOOD_SECRET'])
         headers = { 'Content-Type' => 'application/json' } 
 
         put "/api/v1/users/#{user.id}", headers: headers, params: { name: "JOEY", email: "invalid_email", password: "short" }
@@ -93,7 +93,7 @@ RSpec.describe "Api::V1::UsersController", type: :request do
     let!(:user) { User.create(name: "Joe", email: "joe@example.com", password: "password") }
     let!(:token) do
       payload = { user_id: user.id }
-      JWT.encode(payload, 'brain_food_secret')
+      JWT.encode(payload, ENV['BRAIN_FOOD_SECRET'])
     end
     let!(:headers) { { 'Authorization' => "Bearer #{token}" } }
 

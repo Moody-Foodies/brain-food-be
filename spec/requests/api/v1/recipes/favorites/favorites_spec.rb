@@ -5,7 +5,7 @@ RSpec.describe "Api::V1::Recipes::Favorites", type: :request do
     let!(:user) { User.create(name: "John", email: "johannes@example.com", password: "password") }
     let!(:token) do
       payload = { user_id: user.id }
-      JWT.encode(payload, 'brain_food_secret')
+      JWT.encode(payload, ENV['BRAIN_FOOD_SECRET'])
     end
     let!(:headers) { { 'Authorization' => "Bearer #{token}" } }
     let(:recipe_details) do

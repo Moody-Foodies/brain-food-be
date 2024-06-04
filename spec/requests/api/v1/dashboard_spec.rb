@@ -4,7 +4,7 @@ RSpec.describe "User Dashboard" do
   describe "GET /api/v1/users" do
     before do
       @user = User.create!(name: "John", email: "johannes@example.com", password: "password")
-      token = JWT.encode({user_id: @user.id}, "brain_food_secret")
+      token = JWT.encode({user_id: @user.id}, ENV['BRAIN_FOOD_SECRET'])
       @headers = {"CONTENT_TYPE" => "application/json", "Authorization" => "Bearer #{token}"}
     end
 

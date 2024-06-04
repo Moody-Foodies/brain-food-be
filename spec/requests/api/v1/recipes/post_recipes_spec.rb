@@ -18,7 +18,7 @@ RSpec.describe "Api::V1::RecipesController", type: :request do
 
     let!(:token) do
       payload = { user_id: user.id }
-      JWT.encode(payload, 'brain_food_secret')
+      JWT.encode(payload, ENV['BRAIN_FOOD_SECRET'])
     end
     let!(:headers) { { 'Authorization' => "Bearer #{token}" } }
 
