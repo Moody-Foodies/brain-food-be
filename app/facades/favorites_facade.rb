@@ -1,9 +1,15 @@
 class FavoritesFacade
-  def self.delete_favorite_recipe(user_id, recipe_id)
+  def initialize
+    @favorite_recipes = nil
+  end
+
+  def delete_favorite_recipe(user_id, recipe_id)
     FavoritesService.delete_favorite_recipe(user_id, recipe_id)
   end
 
-  def self.get_favorite_recipes(user_id)
-    FavoritesService.get_favorite_recipes(user_id)
+  def get_favorite_recipes(user_id)
+    @favorite_recipes ||= begin
+      @favorite_recipes = FavoritesService.get_favorite_recipes(user_id)
+    end
   end
 end

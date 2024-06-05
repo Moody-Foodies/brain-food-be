@@ -21,7 +21,7 @@ RSpec.describe FavoritesFacade do
   describe '.class methods' do
     describe '.delete_favorite_recipe' do
       it 'returns the correct info in a JSON response' do
-        return_value = FavoritesFacade.delete_favorite_recipe("1", "123")
+        return_value = FavoritesFacade.new.delete_favorite_recipe("1", "123")
 
         expect(return_value.body).to eq("{}")
         expect(return_value.status).to eq(202)
@@ -30,7 +30,7 @@ RSpec.describe FavoritesFacade do
 
     describe '.get_favorite_recipes' do
       it 'returns the correct info in a JSON response' do
-        return_value = FavoritesFacade.get_favorite_recipes("1")
+        return_value = FavoritesFacade.new.get_favorite_recipes("1")
 
         expect(return_value).to eq(JSON.parse(@json_response, symbolize_names: true))
       end

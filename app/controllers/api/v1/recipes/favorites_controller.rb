@@ -3,7 +3,7 @@ class Api::V1::Recipes::FavoritesController < ApplicationController
 
   def index
     user_id = @current_user.id
-    favorite_recipes = FavoritesFacade.get_favorite_recipes(user_id)
+    favorite_recipes = FavoritesFacade.new.get_favorite_recipes(user_id)
     if favorite_recipes[:errors]
       render json: favorite_recipes, status: :bad_request
     elsif
@@ -20,7 +20,7 @@ class Api::V1::Recipes::FavoritesController < ApplicationController
   end
 
   def destroy
-    result = FavoritesFacade.delete_favorite_recipe(@current_user.id, params[:recipe_id])
+    result = FavoritesFacade.new.delete_favorite_recipe(@current_user.id, params[:recipe_id])
     render json: result.body, status: result.status
   end
 
