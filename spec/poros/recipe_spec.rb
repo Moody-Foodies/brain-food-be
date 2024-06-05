@@ -8,16 +8,10 @@ RSpec.describe Recipe do
       title: 'Red Lentil Soup with Chicken and Turnips',
       image: 'https://img.spoonacular.com/recipes/715415-312x231.jpg',
       ingredients: [
-        { original: 'additional toppings: diced avocado, micro greens, chopped basil)' },
-        { original: '3 medium carrots, peeled and diced' }
+        'additional toppings: diced avocado, micro greens, chopped basil)',
+        '3 medium carrots, peeled and diced'
       ],
-      instructions: [
-        {
-          steps: [
-            { step: 'To a large dutch oven or soup pot, heat the olive oil over medium heat.' }
-          ]
-        }
-      ],
+      instructions: ['To a large dutch oven or soup pot, heat the olive oil over medium heat.'],
       health_benefits: 'Some health benefits',
       description: 'Great dish for the fall or winter',
       cook_time: 55
