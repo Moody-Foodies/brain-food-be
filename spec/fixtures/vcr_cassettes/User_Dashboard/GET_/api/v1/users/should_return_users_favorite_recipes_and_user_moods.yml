@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://favorite-recipes-service-7d6cb7e82492.herokuapp.com/api/v1/favorite_recipes?user_id=581
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 05 Jun 2024 19:35:01 GMT
+      Report-To:
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717616102&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=IjduHEsGyYE1%2BVTnwTe1AsdccKmZHLYy%2BqKLAcYtCOg%3D"}]}'
+      Reporting-Endpoints:
+      - heroku-nel=https://nel.heroku.com/reports?ts=1717616102&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=IjduHEsGyYE1%2BVTnwTe1AsdccKmZHLYy%2BqKLAcYtCOg%3D
+      Nel:
+      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d9972b89-6a00-4a42-8b15-4bed8c7c3847
+      X-Runtime:
+      - '0.180175'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Content-Length:
+      - '11'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+  recorded_at: Wed, 05 Jun 2024 19:35:02 GMT
+- request:
+    method: get
+    uri: https://user-moods-73d107f0a7fc.herokuapp.com/api/moods?user_id=581
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Report-To:
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717616102&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=4Q47o0XGtzUZeTkIdSJZjf1oWFioNzWEaOIIVS7gH5k%3D"}]}'
+      Reporting-Endpoints:
+      - heroku-nel=https://nel.heroku.com/reports?ts=1717616102&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=4Q47o0XGtzUZeTkIdSJZjf1oWFioNzWEaOIIVS7gH5k%3D
+      Nel:
+      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn
+      Date:
+      - Wed, 05 Jun 2024 19:35:02 GMT
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept, Cookie
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      X-Frame-Options:
+      - DENY
+      Content-Length:
+      - '80'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - same-origin
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"581","type":"moods","attributes":{"avg_mood":0,"user_moods":[]}}}'
+  recorded_at: Wed, 05 Jun 2024 19:35:02 GMT
+recorded_with: VCR 6.2.0
