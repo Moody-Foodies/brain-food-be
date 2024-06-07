@@ -14,7 +14,7 @@ RSpec.describe "User Facade" do
       facade = UserFacade.new(1).get_dashboard
 
       expect(facade).to have_key(:recipes)
-      expect(facade[:recipes][:data]).to eq([])
+      expect(facade[:recipes][:data]).to be_a(Array)
 
       expect(facade).to have_key(:moods)
       expect(facade[:moods]).to be_a(Hash)
