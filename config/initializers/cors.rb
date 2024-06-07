@@ -9,7 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins "http://127.0.0.1:5173",
             "https://moody-foodies-ogk5j1x4j-moodyfoody.vercel.app/",
-            "https://jade-lebkuchen-46144d.netlify.app/",
+            "https://jade-lebkuchen-46144d.netlify.app",
             "http://localhost:3000/"
 
     resource "*",
